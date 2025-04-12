@@ -1,0 +1,37 @@
+﻿@page "/crypto-demo"
+@inherits CryptoDemoBase
+
+
+<h3 style="background-color:#2b6cb0; color:white; padding:10px;">AES 256 Encryption & Decryption</h3>
+
+<div class="mb-3">
+    <label>AESKey</label>
+    <InputText class="form-control" @bind-Value="AESKey" readonly />
+</div>
+
+<div class="mb-3">
+    <label>PlainText</label>
+    <InputText class="form-control" @bind-Value="PlainText" />
+</div>
+
+<div class="mb-3">
+    <label>AESIVKey</label>
+    <InputText class="form-control" @bind-Value="IVKey" readonly />
+</div>
+
+<div class="mb-3">
+    <label>CipherText</label>
+    <InputText class="form-control" @bind-Value="CipherText" readonly />
+</div>
+
+<div class="mb-3">
+    <label>CipherToPlainText</label>
+    <InputText class="form-control" @bind-Value="DecryptedText" readonly />
+</div>
+
+<div class="d-flex gap-2">
+    <button class="btn btn-primary" @onclick="GenerateKey">Generate Key</button>
+    <button class="btn btn-primary" @onclick="EncryptData" disabled="@string.IsNullOrWhiteSpace(PlainText)">Encrypt Data</button>
+    <button class="btn btn-primary" @onclick="DecryptData" disabled="@string.IsNullOrWhiteSpace(CipherText)">Decrypt Data</button>
+</div>
+
