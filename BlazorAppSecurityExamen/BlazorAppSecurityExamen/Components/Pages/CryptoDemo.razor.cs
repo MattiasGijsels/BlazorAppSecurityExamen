@@ -10,7 +10,7 @@ namespace BlazorAppSecurityExamen.Components.Pages
         protected string IVKey = "";
         protected string CipherText = "";
         protected string DecryptedText = "";
-
+        //check bracketing functions
         protected void GenerateKey()
         {
             Console.WriteLine("test");
