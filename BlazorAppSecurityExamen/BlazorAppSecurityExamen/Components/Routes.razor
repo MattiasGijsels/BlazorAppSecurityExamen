@@ -1,4 +1,10 @@
-﻿<Router AppAssembly="typeof(Program).Assembly" AdditionalAssemblies="new[] { typeof(Client._Imports).Assembly }">
+﻿@using BlazorAppSecurityExamen.Components.Pages
+
+<Router AppAssembly="typeof(Program).Assembly"
+        AdditionalAssemblies="new[] {
+            typeof(Client._Imports).Assembly,
+            typeof(CryptoDemo).Assembly
+        }">
     <Found Context="routeData">
         <AuthorizeRouteView RouteData="routeData" DefaultLayout="typeof(Layout.MainLayout)">
             <NotAuthorized>

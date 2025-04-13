@@ -65,5 +65,6 @@ app.MapRazorComponents<App>()
 
 // Add additional endpoints required by the Identity /Account Razor components.
 app.MapAdditionalIdentityEndpoints();
+app.MapFallbackToFile("index.html");
 
 app.Run();
