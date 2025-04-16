@@ -67,5 +67,12 @@ namespace BlazorAppSecurityExamen.Services
             csp.ImportParameters(_publicKey);
             return csp.VerifyData(bytesToCheck, "SHA256", signatureBytes);
         }
+        public string GetPublicKeyBase64()
+        {
+            string modulusBase64 = Convert.ToBase64String(_publicKey.Modulus);//
+            string exponentBase64 = Convert.ToBase64String(_publicKey.Exponent);
+            return $"Modulus: {modulusBase64}\nExponent: {exponentBase64}";
+        }
+
     }
 }
