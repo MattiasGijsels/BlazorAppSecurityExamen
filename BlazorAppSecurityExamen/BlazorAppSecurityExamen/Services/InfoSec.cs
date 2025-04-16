@@ -22,8 +22,8 @@ namespace BlazorAppSecurityExamen.Services
         public static string Encrypt(string PlainText, string Key, out string IVKey)
         {
             using (Aes aes = Aes.Create()) 
-            { 
-                aes.Padding = PaddingMode.Zeros; //change to pkce leter on?
+            {
+                aes.Padding = PaddingMode.PKCS7;
                 aes.Key = Convert.FromBase64String(Key);
                 aes.GenerateIV();
 
@@ -51,7 +51,7 @@ namespace BlazorAppSecurityExamen.Services
         {
             using (Aes aes = Aes.Create())
             {
-                aes.Padding = PaddingMode.Zeros; //change to pkce leter on?
+                aes.Padding = PaddingMode.PKCS7;
                 aes.Key = Convert.FromBase64String(Key);
                 aes.IV = Convert.FromBase64String(IVKey);
 
