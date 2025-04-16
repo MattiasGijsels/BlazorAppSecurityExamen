@@ -69,7 +69,7 @@ namespace BlazorAppSecurityExamen.Services
         }
         public string GetPublicKeyBase64()
         {
-            string modulusBase64 = Convert.ToBase64String(_publicKey.Modulus);//
+            string modulusBase64 = Convert.ToBase64String(_publicKey.Modulus);
             string exponentBase64 = Convert.ToBase64String(_publicKey.Exponent);
             return $"Modulus: {modulusBase64}\nExponent: {exponentBase64}";
         }

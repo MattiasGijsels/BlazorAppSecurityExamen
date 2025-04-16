@@ -1,7 +1,9 @@
 ﻿@page "/rsatest"
 @inherits BlazorAppSecurityExamen.Pages.RsaTestBase
 @rendermode InteractiveServer
+@using Microsoft.AspNetCore.Authorization
 
+@attribute [Authorize(Roles = "Admin")]
 <!-- Display Public Key -->
 <div>
     <h4>Public Key:</h4>
