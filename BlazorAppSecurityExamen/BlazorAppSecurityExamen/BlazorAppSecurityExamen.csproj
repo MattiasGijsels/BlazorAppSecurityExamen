@@ -18,6 +18,11 @@
 
   <ItemGroup>
     <Folder Include="Database\" />
+    <Folder Include="wwwroot\images\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\images\Homepage_image.webp" />
   </ItemGroup>
 
 </Project>
