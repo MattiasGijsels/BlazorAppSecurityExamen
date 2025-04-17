@@ -5,29 +5,18 @@
 
 @attribute [Authorize(Roles = "Admin")]
 <!-- Display Public Key -->
-<div>
-    <h4>Public Key:</h4>
-    <div style="
-        border: 1px solid #ccc;
-        padding: 10px;
-        border-radius: 6px;
-        background-color: #f9f9f9;
-        white-space: pre-wrap;
-        word-break: break-word;
-        font-family: inherit;
-        font-weight: bold;
-    ">
+<div> 
+    <h3>Public Key:</h3>
+    <div class="publickeybox">
         @publicKey
     </div>
 </div>
-
-
 
 <h3>RSA Encryption & Signature Test</h3>
 
 <div class="mb-3">
     <label>Message:</label>
-    <input class="form-control" @bind="message" />
+    <input class="form-control " @bind="message" />
 </div>
 
 <button class="btn btn-primary me-2" @onclick="EncryptMessage">Encrypt</button>
@@ -36,8 +25,16 @@
 <button class="btn btn-info" @onclick="VerifySignature">Verify</button>
 
 <hr />
-
+<div class="publickeybox">
 <p><strong>Encrypted:</strong> @encrypted</p>
+</div>
+<div class="publickeybox">
 <p><strong>Decrypted:</strong> @decrypted</p>
+</div>
+<div class="publickeybox">
 <p><strong>Signature:</strong> @signature</p>
+</div>
+<div class="publickeybox">
 <p><strong>Signature Valid:</strong> @signatureValidText</p>
+</div>
+
