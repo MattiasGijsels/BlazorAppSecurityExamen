@@ -15,12 +15,14 @@ namespace BlazorAppSecurityExamen.Pages
         protected bool signatureValid = false;
         protected string signatureValidText = "";
 
-        // Public key as Base64 string (Modulus + Exponent)
-        protected string publicKey = "";
+     
+        protected string publicKeyModulus = "";
+        protected string publicKeyExponent = "";
 
         protected override void OnInitialized()
         {
-            publicKey = RsaService.GetPublicKeyBase64();
+            publicKeyModulus = RsaService.GetPublicKeyModulusBase64();
+            publicKeyExponent = RsaService.GetPublicKeyExponentBase64();
         }
 
         protected void EncryptMessage()
