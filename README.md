@@ -1,46 +1,61 @@
 # BlazorAppSecurityExamen - Syntra
-**Author:** Mattias Gijsels
 
-Welcome to **BlazorAppSecurityExamen**, a Blazor application built for the Syntra Security assignment. This project demonstrates the implementation of **authentication**, **authorization**, **user role delegation**, and both **symmetric** and **asymmetric encryption**.
-
----
-
-## 🔐 Features
-
-- **User Authentication & Authorization**
-- **Role-Based Access Control (RBAC)**
-- **Symmetric Encryption Demo**
-- **Asymmetric Encryption Demo**
-- **Secure Profile Editing**
+**Author:** Mattias Gijsels  
+**Project Type:** Blazor WebAssembly Application  
+**Purpose:** Syntra Security Assignment
 
 ---
 
-## 👥 Role System
+## 🛡️ Overview
 
-The app implements a **tiered role system** for access control:
+**BlazorAppSecurityExamen** is a Blazor application created to demonstrate secure web application practices as part of the Syntra security assignment. It includes examples of:
 
-| Role        | Description                                                                                          |
-|-------------|------------------------------------------------------------------------------------------------------|
-| **Admin**   | Full access to all features: view/edit profile, symmetric & asymmetric encryption, and Auth page.   |
-| **SuperUser** | Access to symmetric encryption and profile editing. Cannot access the "Auth Required" page.         |
-| **User**    | Can only manage their own profile (e.g., add date of birth, phone number). No access to encryption or Auth page. |
+- User Authentication & Authorization
+- Role-Based Access Control (RBAC)
+- Symmetric & Asymmetric Encryption
+- Secure Profile Editing
+
+This project highlights how to protect sensitive features and data within a Blazor environment using layered security techniques.
 
 ---
 
-## 🧪 Test Accounts  
-> ⚠️ **Note:** These credentials are for demo/testing only — never hardcode or publish real credentials in production.
+## ✨ Features
 
-| Role        | Email                   | Password       |
-|-------------|-------------------------|----------------|
-| Admin       | tony@stark.com          | Password001-   |
-| SuperUser   | peter@parker.com        | Password002-   |
-| User        | captain@america.com     | Password003-   |
+- ✅ User Authentication & Authorization
+- 🔐 Role-Based Access Control (RBAC)
+- 🔁 Symmetric Encryption Demo
+- 🔑 Asymmetric Encryption Demo
+- 👤 Secure Profile Editing
+
+---
+
+## 🔑 Role System
+
+The application implements a tiered role system to manage access control:
+
+| Role       | Description                                                                                                                                     |
+|------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Admin**      | Full access: profile editing, both encryption demos, and the admin-only page.                                                                 |
+| **SuperUser**  | Can access the symmetric encryption demo and edit profile. No access to admin-only pages.                                                     |
+| **User**       | Limited to managing their own profile (e.g., add birthdate, phone number). No access to encryption or authentication-related pages.           |
+
+---
+
+## 🧪 Test Accounts
+
+> ⚠️ **Note:** These credentials are for demonstration purposes only. Real-world applications should never hardcode or share credentials publicly.
+
+| Role       | Email                  | Password       |
+|------------|------------------------|----------------|
+| Admin      | tony@stark.com         | Password001-   |
+| SuperUser  | peter@parker.com       | Password002-   |
+| User       | captain@america.com    | Password003-   |
 
 ---
 
 ## 📦 Used NuGet Packages
 
-The project uses the following NuGet packages:
+The following NuGet packages are used to support security, identity, and data management:
 
 - `Microsoft.AspNetCore.Components.WebAssembly.Server`
 - `Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore`
@@ -48,28 +63,31 @@ The project uses the following NuGet packages:
 - `Microsoft.EntityFrameworkCore.SqlServer (8.0.14)`
 - `Microsoft.EntityFrameworkCore.Tools (8.0.14)`
 
-These packages enable:
-- ASP.NET Core Identity and Entity Framework integration
-- SQL Server support for EF Core
-- Developer tools and diagnostics for EF
-- Hosting Blazor WebAssembly on the server
+### These packages provide:
+
+- ASP.NET Core Identity integration
+- Entity Framework Core support for SQL Server
+- Developer tools and runtime diagnostics
+- Hosting Blazor WebAssembly apps on the server
 
 ---
 
-## 📝 Notes
+## 📌 Notes
 
-- New users can register accounts but will have limited access (**User** role by default).
-- The app demonstrates good separation of concerns and role-based access to specific pages.
-- Encryption demos are available based on user privileges.
+- Newly registered users are assigned the **User** role by default.
+- Page access is strictly role-based and demonstrates good separation of concerns.
+- Encryption demos are available only to users with appropriate privileges.
 
 ---
 
-## ✅ Summary
+## 📚 Summary
 
-This project showcases a secure and structured approach to managing user roles and protecting sensitive features using Blazor. It is designed for educational purposes and highlights best practices in web security within a Blazor environment.
+This project showcases a secure, structured approach to managing user access and protecting sensitive components using **Blazor WebAssembly** and **ASP.NET Core Identity**. It is built for **educational purposes** and demonstrates best practices in modern web security.
 
 ---
 
 ## 🚀 Future Improvements
 
-- Add an **Admin Control Panel** that allows administrators to **delegate roles to newly registered users**. This would provide a user-friendly interface for managing user access and permissions dynamically, without modifying the database manually.
+- Add an **Admin Control Panel** that allows administrators to delegate roles to newly registered users.
+  - This will make role management more dynamic and user-friendly.
+  - Reduces the need for manual database changes.
