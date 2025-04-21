@@ -2,6 +2,7 @@ using BlazorAppSecurityExamen.Client.Pages;
 using BlazorAppSecurityExamen.Components;
 using BlazorAppSecurityExamen.Components.Account;
 using BlazorAppSecurityExamen.Data;
+using BlazorAppSecurityExamen.Services;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -13,7 +14,9 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents()
     .AddInteractiveWebAssemblyComponents();
 
-builder.Services.AddSingleton<BlazorAppSecurityExamen.Services.RsaEncryptionService>();
+//builder.Services.AddSingleton<BlazorAppSecurityExamen.Services.RsaEncryptionService>();
+builder.Services.AddScoped<RsaEncryptionService>();
+
 
 
 builder.Services.AddCascadingAuthenticationState();

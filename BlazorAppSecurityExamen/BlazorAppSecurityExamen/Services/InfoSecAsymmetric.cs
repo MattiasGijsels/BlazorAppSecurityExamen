@@ -1,6 +1,6 @@
 ﻿using System.Security.Cryptography;
 using System.Text;
-using System.Xml.Serialization;
+using System.Text.Json;
 
 namespace BlazorAppSecurityExamen.Services
 {
@@ -18,18 +18,12 @@ namespace BlazorAppSecurityExamen.Services
 
         public string GetPublicKey()
         {
-            var sw = new StringWriter();
-            var xmlSerializer = new XmlSerializer(typeof(RSAParameters));
-            xmlSerializer.Serialize(sw, _publicKey);
-            return sw.ToString();
+            return JsonSerializer.Serialize(_publicKey);
         }
 
         public string GetPrivateKey()
         {
-            var sb = new StringWriter();
-            var xmlSerializer = new XmlSerializer(typeof(RSAParameters));
-            xmlSerializer.Serialize(sb, _privateKey);
-            return sb.ToString();
+            return JsonSerializer.Serialize(_privateKey);
         }
 
         public string AsymmetricEncrypt(string plainText)
@@ -42,6 +36,7 @@ namespace BlazorAppSecurityExamen.Services
                 return Convert.ToBase64String(cypherData);
             }
         }
+
         public string AsymmetricDecrypt(string cypherText)
         {
             var dataBytes = Convert.FromBase64String(cypherText);
@@ -67,17 +62,15 @@ namespace BlazorAppSecurityExamen.Services
             csp.ImportParameters(_publicKey);
             return csp.VerifyData(bytesToCheck, "SHA256", signatureBytes);
         }
+
         public string GetPublicKeyModulusBase64()
         {
-            string modulusBase64 = Convert.ToBase64String(_publicKey.Modulus);
-            return $"{modulusBase64}";
+            return Convert.ToBase64String(_publicKey.Modulus);
         }
 
         public string GetPublicKeyExponentBase64()
         {
-            string exponentBase64 = Convert.ToBase64String(_publicKey.Exponent);
-            return $"{exponentBase64}";
+            return Convert.ToBase64String(_publicKey.Exponent);
         }
-
     }
 }

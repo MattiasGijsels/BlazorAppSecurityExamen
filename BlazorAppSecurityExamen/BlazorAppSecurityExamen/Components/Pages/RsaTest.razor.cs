@@ -19,6 +19,7 @@ namespace BlazorAppSecurityExamen.Pages
         protected string publicKeyModulus = "";
         protected string publicKeyExponent = "";
 
+
         protected override void OnInitialized()
         {
             publicKeyModulus = RsaService.GetPublicKeyModulusBase64();

@@ -4,14 +4,14 @@
 @using Microsoft.AspNetCore.Authorization
 
 @attribute [Authorize(Roles = "Admin")]
-<!-- Display Public Key -->
-<div> 
+
+<div>
     <h3>Public Key:</h3>
-    <div class="publickeybox"> 
+    <div class="publickeybox">
         <p><strong>Modulus:</strong>@publicKeyModulus</p>
     </div>
 
-    <div class="publickeybox"> 
+    <div class="publickeybox">
         <p><strong>Exponent:</strong>@publicKeyExponent</p>
     </div>
 </div>
