@@ -5,18 +5,20 @@
 
 @attribute [Authorize(Roles = "Admin")]
 
-<div>
-    <h3>Public Key:</h3>
-    <div class="publickeybox">
-        <p><strong>Modulus:</strong>@publicKeyModulus</p>
-    </div>
-
-    <div class="publickeybox">
-        <p><strong>Exponent:</strong>@publicKeyExponent</p>
-    </div>
+<h2>Public Key</h2>
+<div class="mb-3">
+    <label class="form-label">Modulus</label>
+    <textarea class="form-control bg-light" readonly rows="3" style="white-space: normal;">@publicKeyModulus</textarea>
 </div>
 
-<h3>RSA Encryption & Signature Test</h3>
+
+<div class="mb-3">
+    <label class="form-label">Exponent</label>
+    <input class="form-control bg-light" value="@publicKeyExponent" readonly />
+</div>
+
+
+<h2>RSA Encryption & Signature Test</h2>
 
 <div class="mb-3">
     <label>Message:</label>
